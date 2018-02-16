@@ -13,15 +13,14 @@ class Nav extends Component {
     }
     return(
         <div>
-          <header className="App-header">
-          </header>
           <nav>
             <div className="nav-wrapper">
-              <a className="brand-logo" href="/">Brand</a>
+              <a className="brand-logo" href="/"></a>
                 {links}
             </div>
           </nav>
-          
+          <div className="heroimg">
+          </div>
         </div>
       );
   }

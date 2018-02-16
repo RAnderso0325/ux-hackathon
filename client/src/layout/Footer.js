@@ -4,7 +4,7 @@ class Footer extends Component {
   render(){
     return(
         <div className="footer">
-            <span className="footer-text">Created by Our Team &copy; {new Date().getFullYear()}</span>
+            <span className="footer-text">Created by Our Team &copy; {new Date().getFullYear()}     powered by PetFinder.com</span>
         </div>
       );
   }
