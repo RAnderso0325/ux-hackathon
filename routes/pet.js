@@ -3,6 +3,7 @@ var express = require("express");
 var router = express.Router();
 var mongoose = require("mongoose");
 var User = require("../models/user");
+var Pet = require('../models/pet');
 var request = require('request');
 
 router.post('/search', function(req,res,next){
@@ -28,5 +29,16 @@ router.post('/search', function(req,res,next){
         }
     });
 });
+
+router.post('/add', function(req,res,next){
+    //let pet = JSON.parse(req.body.pet);
+    console.log(req.body.pet);
+    // Pet.create({name: name, description: description},function(err,pet){
+        //if(err){
+            //console.log(err)
+        //}
+        //res.send('success');
+    // })
+})
 
 module.exports = router;

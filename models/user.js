@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+var Schema = mongoose.Schema;
 
 
 var userSchema = new mongoose.Schema({
@@ -21,7 +22,13 @@ var userSchema = new mongoose.Schema({
     required: true,
     minlength: 8,
     maxlength: 99
-  }
+  },
+  pets: [{
+    petId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Pet'
+    }
+  }]
 });
 
 // Override 'toJSON' to prevent the password from being returned with the user

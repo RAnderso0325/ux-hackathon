@@ -7,22 +7,24 @@ class Results extends Component{
     constructor(props){
         super(props);
         this.state = {
-
+            pet: ''
         }
+        this.handleClick = this.handleClick.bind(this);
     }
-        handleSubmit = (e) => {
-            e.preventDefault();
-            let pet = e.target.value;
-            let user = this.props.user;
-            axios.post('/pet/add',{
-                user: user,
-                pet: pet
-            }).then((result) => {
-                console.log(result);
-            }).catch((err) => {
-                console.log(err);
-            });
-        }
+    handleClick = (e) => {
+        this.setState({pet: e.target.value},function(){
+        let wholePet = JSON.stringify(this.state.pet);
+        let person = this.props.user;
+        axios.post('/pet/add',{
+            user: person,
+            pet: wholePet
+        }).then((result) => {
+            console.log(result);
+        }).catch((err) => {
+            console.log(err);
+        });
+    });
+    }
     render(){
         let allResults = [];
         let resultsArr = this.props.results
@@ -47,10 +49,7 @@ class Results extends Component{
                     <div className="card-image">
                         <div className="row">{resultsArr[i].name.$t}({resultsArr[i].sex.$t})</div>
                         {petImg}
-                        <form onSubmit={this.handleSubmit}>
-          	                <input hidden type="text" name="petId" value={resultsArr[i].id.$t} />
-                            <button type="submit" className="btn-floating halfway-fab waves-effect waves-light indigo accent-2">+</button>
-                        </form>
+                        <button type="submit" onClick={this.handleClick} value={resultsArr[i]} className="btn-floating halfway-fab waves-effect waves-light indigo accent-2">+</button>
                     </div>
                     <div className="card-content pin-p">
                         <div className="card-content">

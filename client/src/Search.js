@@ -116,7 +116,7 @@ class Search extends Component{
         let page;
         if(this.state.searchResults.length){
             page = (
-                <Results results={this.state.searchResults} newSearch={(e)=>this.newSearch}/>
+                <Results user={this.props.user} results={this.state.searchResults} newSearch={(e)=>this.newSearch}/>
             );
         }else{
             page = (
