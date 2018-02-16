@@ -41,14 +41,14 @@ class Login extends Component {
     }
     else {
       form = (<form onSubmit={this.handleSubmit}>
-                <div>
+                <div className="input-field">
                   <input name="Email"
                        placeholder="Enter your email"
                        value={this.state.email}
                        onChange={this.handleEmailChange}
                   />
                 </div>
-                <div>
+                <div className="input-field">
                   <input name="Password"
                        placeholder="Enter your password"
                        type="password"
@@ -56,7 +56,7 @@ class Login extends Component {
                        onChange={this.handlePasswordChange}
                   />
                 </div>
-                <input type="submit" value="Login" className="btn-primary" />
+                <input type="submit" value="Login" className="waves-effect waves-light" />
               </form>);
     }
     return (

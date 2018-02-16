@@ -6,16 +6,18 @@ class Nav extends Component {
   render(){
     let links = <span />
     if(this.props.user){
-      links = <span><Logout /><Link to="/profile">Profile</Link></span>;
+      links = <ul className="right"><li><Link to="/">Home</Link></li><li><Logout /></li><li><Link to="/profile">Profile</Link></li></ul>;
     }
     else {
-      links = <span><Link to="/login">Login</Link><Link to="/signup">Sign Up</Link></span>;
+      links = <ul className="right"><li><Link to="/">Home</Link></li><li><Link to="/login">Login</Link></li><li><Link to="/signup">Sign Up</Link></li></ul>;
     }
     return(
         <div>
-          <nav className="nav">
-            <a href="/">Home</a>
-            {links}
+          <nav>
+            <div className="nav-wrapper">
+              <a className="brand-logo" href="/">Brand</a>
+                {links}
+            </div>
           </nav>
           <header className="App-header">
             <h1 className="App-title">App Title - Hackathon</h1>

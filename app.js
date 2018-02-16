@@ -27,6 +27,7 @@ app.use(function(req, res, next) {
 
 // Controllers
 app.use('/auth', require('./routes/auth'));
+app.use('/pet', require('./routes/pet'));
 
 app.get('*', function(req, res, next) {
 	res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+import './Materialize.css';
 import axios from 'axios';
 import Flash from './layout/Flash.js';
 import Footer from './layout/Footer.js';
@@ -77,7 +78,7 @@ class App extends Component {
         <Router>
           <div>
             <Nav user={this.state.user} />
-            <div className="space">
+            <div className="container">
               <Flash flashType={this.state.flashType} flash={this.state.flash} setFlash={this.setFlash} cancelFlash={this.cancelFlash} />
               <Route exact path="/" component={Home} />
               <Route path="/login" component={
