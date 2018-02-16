@@ -1,10 +1,19 @@
 /* CUSTOM STYLES */
 nav {
   width: 100% !important;
-  background-color: #555 !important;
+  background-color: teal !important;
   padding: 10px 0 !important;
   top: 200px !important;
 }
+
+.heroimg {
+  height: 250px;
+  background-image: url('./Logo.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
 .App {
   text-align: center;
 }
@@ -25,10 +34,12 @@ nav a {
   color: #4ff;
 }
 nav a:hover {
-  color: #7f4dd2;
+  color: white;
+  text-emphasis: bold;
+  background-color: inherit;
 }
 .footer {
-  background-color: #555;
+  background-color: teal;
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -76,7 +87,7 @@ nav a:hover {
 .App {
   text-align: center;
 }
-/* 
+/*
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
@@ -94,7 +105,7 @@ nav a:hover {
 .App-intro {
   font-size: large;
 }
-/* 
+/*
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
