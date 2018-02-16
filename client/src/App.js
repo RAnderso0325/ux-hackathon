@@ -10,6 +10,7 @@ import Nav from './layout/Nav.js';
 import Login from './auth/Login.js';
 import Profile from './Profile.js';
 import Signup from './auth/Signup.js';
+import Search from './Search.js';
 
 class App extends Component {
   constructor(props){
