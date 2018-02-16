@@ -3,15 +3,6 @@ import axios from 'axios';
 import Search from './Search.js';
 
 class Home extends Component {
-  componentWillMount(){
-    axios.get('/pet/search').then((result) => {
-      console.log(result.data);
-      console.log(result.data.allPets.pet[0]);
-      console.log(result.data.allPets.pet[0].name.$t);
-    }).catch((err) => {
-      console.log(err);
-    });
-  }
   render(){
     return (
         <div className="home-page">
