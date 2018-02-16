@@ -7,6 +7,7 @@ import ReptileBreedList from './helper/ReptileBreedList.js';
 import HorseBreedList from './helper/HorseBreedList.js';
 import SmallFurryBreedList from './helper/SmallFurryBreedList.js';
 import BarnYardBreedList from './helper/BarnYardBreedList.js';
+import Results from './Results.js';
 
 class Search extends Component{
     constructor(props){
@@ -69,8 +70,8 @@ class Search extends Component{
             location: lo,
             age: ag
         }).then((result) => {
-            console.log(result.data.pet);
-            this.setState({searchResults: result.data.pet});
+            console.log(result.data.allPets.pet);
+            this.setState({searchResults: result.data.allPets.pet});
             console.log(this.state.searchResults);
             console.log('in the promise from post');
         }).catch((err) => {
@@ -112,8 +113,14 @@ class Search extends Component{
         }else{
             breeds.push(<option value="">Please select an animal first!</option>)
         }
-        return (
-        <div className="search-page col s12">
+        let page;
+        if(this.state.searchResults.length){
+            page = (
+                <Results results={this.state.searchResults} newSearch={(e)=>this.newSearch}/>
+            );
+        }else{
+            page = (
+                <div className="search-page col s12">
                 <form name="Country Code" className="search-form" onSubmit={this.handleSubmit}>
                     <div className="input-field">
                         <select value={this.state.animal} className="form-select" onChange={this.handleChangeAnimal}>
@@ -132,7 +139,6 @@ class Search extends Component{
                             {breeds}
                         </select>
                     </div>
-                    {console.log(breeds)}
                     <div className="input-field">
                         <select value={this.state.size} className="form-select" onChange={this.handleChangeSize}>
                             <option selected value="">Choose a size!</option>
@@ -164,6 +170,12 @@ class Search extends Component{
               <input type="submit" value="Search" className="waves-effect waves-light btn" />
             </form>
           </div>
+            );
+        }
+        return (
+            <div className="search-full-page">
+                {page}
+            </div>
         );
     }
 }
